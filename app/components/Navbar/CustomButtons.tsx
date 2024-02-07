@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { SunIcon, YouTubeIcon } from "../Icons";
+import { YouTubeIcon } from "../Icons";
 
 const CustomButtons = () => {
   return (
@@ -8,9 +8,10 @@ const CustomButtons = () => {
       <motion.a href="#" whileHover={{ y: -2 }} whileTap={{ scale: 0.9 }}>
         <YouTubeIcon />
       </motion.a>
-      <button className="p-1 bg-dark text-white rounded-full">
-        <SunIcon />
-      </button>
+
+      <div className="px-4 py-2 text-xs font-medium bg-primary/80 text-white rounded-md">
+        <span>1.37k Subscriber&apos;s</span>
+      </div>
     </motion.div>
   );
 };

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import CustomLink from "../CustomLink";
 
 export default function Footer() {
@@ -41,9 +42,13 @@ export default function Footer() {
             className="hover:text-primary"
           />
 
-          <button className="bg-transparent border border-green-500 text-green-500 text-sm font-semibold px-4 py-1 rounded-md">
+          {/* TODO: Dummy Mail Address change */}
+          <Link
+            href={"mailto:xyz@gmail.com"}
+            className="bg-transparent border border-dark text-dark text-sm px-4 py-2 rounded-md"
+          >
             Hire Me!
-          </button>
+          </Link>
         </div>
       </div>
 

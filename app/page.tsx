@@ -1,12 +1,71 @@
-import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Navbar/Navbar";
+import Image from "next/image";
+import Layout from "./components/Layout";
+import AnimateHeading from "./components/AnimateHeading";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main className="relative">
-      <Navbar />
-      <div>Hello World</div>
-      <Footer />
+      <Layout>
+        <div className="flex justify-end items-center gap-8">
+          {/* Cover Picture */}
+          <div className="absolute top-[10%] left-[2%] -z-10">
+            <Image
+              src={"/HomePage.png"}
+              alt="Cover Photo"
+              height={750}
+              width={750}
+              priority
+            />
+          </div>
+
+          {/* Content */}
+          <div className="w-[55%] p-2 flex flex-col justify-center items-start gap-6">
+            <AnimateHeading
+              heading="Unlocking Creativity: Your One-Stop Destination for Educational Projects and Innovative Solutions!"
+              className="!text-5xl text-left"
+            />
+
+            <p className="text-sm font-medium text-secondary">
+              Embark on a journey of innovation and learning with my
+              comprehensive support and guidance. Whether you&apos;re a student
+              seeking to excel in academic projects or a hobbyist eager to
+              explore the realm of electronics and home decor, my tailored
+              assistance is here to elevate your skills and projects to new
+              heights. With a strong foundation in education and engineering,
+              coupled with a passion for creativity, I am dedicated to
+              empowering individuals to unleash their full potential and bring
+              their ideas to life.
+              <br />
+              <br />
+              From hands-on training to step-by-step tutorials, I provide the
+              tools and resources necessary for success in project development.
+              Let&apos;s collaborate, learn, and create together as we navigate
+              the exciting world of electronics, programming, and design. Join
+              me on this enriching journey of exploration and discovery, where
+              every project is an opportunity to learn, grow, and innovate.
+              Together, we can turn imagination into reality and make a
+              meaningful impact in the world of innovation.
+            </p>
+
+            <div className="flex justify-between items-center gap-4">
+              {/* TODO: Fix the routing and mail buttons */}
+              <Link
+                href={"/about"}
+                className="px-4 py-2 rounded-md border border-dark bg-dark text-light text-sm"
+              >
+                Hire Me!
+              </Link>
+              <Link
+                href={"/builds"}
+                className="px-4 py-2 rounded-md border border-dark bg-transparent text-dark text-sm"
+              >
+                See My Latest Tutorials
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Layout>
     </main>
   );
 }

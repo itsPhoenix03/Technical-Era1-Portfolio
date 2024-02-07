@@ -22,7 +22,6 @@ export default function Navbar() {
         <CustomLink title="Home" href="/" className="" />
         <CustomLink title="Builds/Works" href="/work" className="" />
         <CustomLink title="Playlists" href="/playlist" className="" />
-        <CustomLink title="Videos" href="/videos" className="" />
         <CustomLink title="About" href="/about" className="" />
 
         {/* Contact & Theme Component */}
