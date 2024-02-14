@@ -45,9 +45,9 @@ export default function Footer() {
           {/* TODO: Dummy Mail Address change */}
           <Link
             href={"mailto:xyz@gmail.com"}
-            className="bg-transparent border border-dark text-dark text-sm px-4 py-2 rounded-md"
+            className="bg-transparent border border-dark text-dark shadow-lg shadow-dark/20 text-sm px-4 py-2 rounded-md"
           >
-            Hire Me!
+            Contact Me!
           </Link>
         </div>
       </div>

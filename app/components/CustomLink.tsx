@@ -17,7 +17,7 @@ const CustomLink: React.FC<props> = ({ title, href, className }) => {
     >
       {title}
       <span
-        className={`h-[1.5px] inline-block bg-primary absolute left-0 -bottom-0.5 
+        className={`h-[1.5px] inline-block bg-primary/40 rounded-sm absolute left-0 -bottom-0.5 
         group-hover:w-full transition-[width] ease duration-300
         ${pathname === href ? "w-full" : "w-0"}
     `}

@@ -4,7 +4,7 @@ import CustomLink from "../CustomLink";
 
 export default function Navbar() {
   return (
-    <>
+    <div className="sticky z-20 bg-white top-0 shadow-2xl shadow-white">
       {/* Logo Component */}
       <div className="absolute left-4 top-2 border border-yellow-400">
         {/* <Image
@@ -27,6 +27,6 @@ export default function Navbar() {
         {/* Contact & Theme Component */}
         <CustomButtons />
       </nav>
-    </>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AnimateHeading from "../components/AnimateHeading";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -71,6 +72,15 @@ export default function About() {
             project is an opportunity to learn, grow, and make a positive impact
             on the world.
           </p>
+        </div>
+
+        <div className="mt-10 p-2">
+          <Link
+            href={"mailto:xyz@gmail.com"}
+            className="border border-primary/10 bg-primary/70 text-white text-md font-medium py-2 px-4 shadow-lg shadow-primary/70 rounded-md"
+          >
+            Have a Chat with Me!
+          </Link>
         </div>
       </div>
     </main>

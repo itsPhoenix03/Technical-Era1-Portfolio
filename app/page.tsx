@@ -51,14 +51,14 @@ export default function Home() {
             <div className="flex justify-between items-center gap-4">
               {/* TODO: Fix the routing and mail buttons */}
               <Link
-                href={"/about"}
-                className="px-4 py-2 rounded-md border border-dark bg-dark text-light text-sm"
+                href={"mailto:xyz@gmail.com"}
+                className="px-4 py-2 rounded-md border border-dark bg-dark text-light shadow-lg shadow-dark/70 text-sm"
               >
-                Hire Me!
+                Talk to Me!
               </Link>
               <Link
-                href={"/builds"}
-                className="px-4 py-2 rounded-md border border-dark bg-transparent text-dark text-sm"
+                href={"/work"}
+                className="px-4 py-2 rounded-md border border-dark bg-transparent text-dark shadow-lg shadow-dark/40 text-sm"
               >
                 See My Latest Tutorials
               </Link>
