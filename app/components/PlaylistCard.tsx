@@ -3,13 +3,13 @@ import Link from "next/link";
 
 const PlaylistCard = () => {
   return (
-    <div className="border border-primary/40 rounded-lg flex justify-start items-center gap-2 overflow-hidden">
+    <div className="border border-primary/40 rounded-lg flex justify-start items-center gap-2 overflow-hidden p-2">
       <Image
         src={"/About.png"}
         alt="Dummy"
         height={250}
-        width={700}
-        className="w-full max-h-[300px] object-cover rounded-l-md"
+        width={2000}
+        className="max-h-[300px] object-cover rounded-md"
       />
 
       <div className="flex flex-col justify-start items-end gap-4 p-4">

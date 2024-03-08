@@ -26,7 +26,7 @@ export default function Home() {
               className="!text-5xl text-left"
             />
 
-            <p className="text-sm font-medium text-secondary">
+            <p className="text-sm font-medium text-dark">
               Embark on a journey of innovation and learning with my
               comprehensive support and guidance. Whether you&apos;re a student
               seeking to excel in academic projects or a hobbyist eager to

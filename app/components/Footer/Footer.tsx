@@ -1,12 +1,22 @@
 import Link from "next/link";
 import CustomLink from "../CustomLink";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <div className="bg-white text-dark min-h-[250px] py-2 px-4 border-t border-t-primary/50">
-      <div className="my-10 flex justify-between items-center gap-4">
+      <div className="my-2 flex justify-between items-center gap-4">
         {/* Section 1 */}
-        <div className="w-[30%]">Logo</div>
+        <div className="w-[30%] flex justify-center items-center">
+          <Image
+            src={"/Logo.png"}
+            alt="Technical Era1 Logo"
+            priority
+            width={500}
+            height={500}
+            className="h-[200px] w-[200px] object-cover"
+          />
+        </div>
 
         {/* Section 2 */}
         <div className="w-[50%]">
@@ -52,8 +62,19 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="w-full text-sm text-center my-10">
-        Copyright &copy; {new Date().getFullYear()} Technical Era1
+      <div className="w-full text-sm text-center my-5">
+        Copyright &copy; {new Date().getFullYear() + 2} Technical Era1
+      </div>
+
+      <div className="w-full text-xs text-center my-5 text-dark">
+        Developed with ❣️ by{" "}
+        <Link
+          target="_blank"
+          href="https://www.linkedin.com/in/shreyasmisra03/"
+          className="underline underline-offset-4"
+        >
+          Shreyas
+        </Link>
       </div>
     </div>
   );

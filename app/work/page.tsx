@@ -1,19 +1,22 @@
 import AnimateHeading from "../components/AnimateHeading";
-import WorkCard from "../components/WorkCard";
+import ViewModal from "../components/Modal/ViewModal";
+import { getPlaylists } from "../hooks/helper";
+import WorkClient from "./WorkClient";
 
-export default function Work() {
+export default async function Work() {
+  const playlists = await getPlaylists();
+
   return (
-    <main className="px-24 py-20">
-      <AnimateHeading
-        heading="Showcasing Creativity and Innovation"
-        className=""
-      />
+    <>
+      <ViewModal />
+      <main className="px-24 py-20">
+        <AnimateHeading
+          heading="Dive into a World of Knowledge and Inspiration!"
+          className=""
+        />
 
-      <div className="mt-10 grid grid-cols-3 gap-4">
-        <WorkCard />
-        <WorkCard />
-        <WorkCard />
-      </div>
-    </main>
+        <WorkClient playlists={playlists} />
+      </main>
+    </>
   );
 }

@@ -77,7 +77,9 @@ export default function About() {
         <div className="mt-10 p-2">
           <Link
             href={"mailto:xyz@gmail.com"}
-            className="border border-primary/10 bg-primary/70 text-white text-md font-medium py-2 px-4 shadow-lg shadow-primary/70 rounded-md"
+            className="border border-dark/10 bg-dark text-white text-sm font-medium py-4 px-4 shadow-lg shadow-dark/70 rounded-md hover:bg-transparent hover:text-dark transition-all
+            duration-500 ease-in-out
+            "
           >
             Have a Chat with Me!
           </Link>
