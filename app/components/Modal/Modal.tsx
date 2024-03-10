@@ -80,7 +80,7 @@ const Modal: React.FC<ModalProps> = ({
         xl:w-3/5
         my-6
         mx-auto
-        h-full
+        h-fit
         md:h-auto
         lg:h-auto
         "
@@ -115,13 +115,13 @@ const Modal: React.FC<ModalProps> = ({
             "
             >
               {/* HEADER */}
-              <div className="flex items-center justify-center p-6 pr-3 md:p-6 rounded-t relative border-b-[1px] border-b-primary/40">
-                <div className="text-md font-semibold md:text-lg max-w-[90%] text-center line-clamp-2">
+              <div className="flex items-center justify-center p-6 md:pr-3 md:p-6 rounded-t relative border-b-[1px] border-b-primary/40">
+                <div className="text-md font-semibold md:text-lg w-full md:max-w-[90%] text-center md:line-clamp-2">
                   {title}
                 </div>
                 <button
                   onClick={handleClose}
-                  className="p-1 border-0 hover:opacity-70 transition absolute right-3 md:right-9"
+                  className="hidden md:block p-1 border-0 hover:opacity-70 transition absolute right-3 md:right-9"
                 >
                   <CloseIcon className="text-primary/70 w-6 h-6" />
                 </button>

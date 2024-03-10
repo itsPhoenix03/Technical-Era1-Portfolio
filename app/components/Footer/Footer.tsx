@@ -5,9 +5,9 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <div className="bg-white text-dark min-h-[250px] py-2 px-4 border-t border-t-primary/50">
-      <div className="my-2 flex justify-between items-center gap-4">
+      <div className="my-2 flex flex-col md:flex-row justify-between items-center gap-4">
         {/* Section 1 */}
-        <div className="w-[30%] flex justify-center items-center">
+        <div className="w-full md:w-[30%] flex justify-center items-center">
           <Image
             src={"/Logo.png"}
             alt="Technical Era1 Logo"
@@ -19,8 +19,8 @@ export default function Footer() {
         </div>
 
         {/* Section 2 */}
-        <div className="w-[50%]">
-          <p className="text-sm text-center">
+        <div className="w-full md:w-[50%]">
+          <p className="text-xs lg:text-sm text-center">
             I specialize in developing projects tailored for educational
             institutions, providing comprehensive support for students and
             professionals alike. From conceptualization to execution, I offer
@@ -34,7 +34,7 @@ export default function Footer() {
         </div>
 
         {/* Section 3 */}
-        <div className="w-[30%] flex flex-col justify-center items-center gap-4">
+        <div className="w-full md:w-[30%] flex flex-col justify-center items-center gap-4">
           <CustomLink
             title="Vision"
             href="/about"

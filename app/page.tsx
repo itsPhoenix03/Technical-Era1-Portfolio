@@ -7,26 +7,27 @@ export default function Home() {
   return (
     <main className="relative">
       <Layout>
-        <div className="flex justify-end items-center gap-8">
+        <div className="flex flex-col md:flex-row justify-end items-center gap-8">
           {/* Cover Picture */}
-          <div className="absolute top-[10%] left-[2%] -z-10">
+          <div className="md:absolute md:top-[10%] md:-left-[6%] lg:-left-[4%] xl:left-[2%] -z-10">
             <Image
               src={"/HomePage.png"}
               alt="Cover Photo"
               height={750}
               width={750}
               priority
+              className="w-full md:w-[65%] lg:w-[80%] xl:w-auto h-full md:h-[80%] xl:h-auto"
             />
           </div>
 
           {/* Content */}
-          <div className="w-[55%] p-2 flex flex-col justify-center items-start gap-6">
+          <div className="w-full md:w-[75%] lg:w-[55%] p-2 flex flex-col justify-center items-start gap-6">
             <AnimateHeading
               heading="Unlocking Creativity: Your One-Stop Destination for Educational Projects and Innovative Solutions!"
-              className="!text-5xl text-left"
+              className="text-2xl md:!text-4xl xl:!text-5xl md:text-right lg:text-left"
             />
 
-            <p className="text-sm font-medium text-dark">
+            <p className="text-xs xl:text-sm font-medium text-dark">
               Embark on a journey of innovation and learning with my
               comprehensive support and guidance. Whether you&apos;re a student
               seeking to excel in academic projects or a hobbyist eager to
@@ -52,13 +53,13 @@ export default function Home() {
               {/* TODO: Fix the routing and mail buttons */}
               <Link
                 href={"mailto:xyz@gmail.com"}
-                className="px-4 py-2 rounded-md border border-dark bg-dark text-light shadow-lg shadow-dark/70 text-sm"
+                className="px-4 py-2 rounded-md border border-dark bg-dark text-light shadow-lg shadow-dark/70 text-xs md:text-sm"
               >
                 Talk to Me!
               </Link>
               <Link
                 href={"/work"}
-                className="px-4 py-2 rounded-md border border-dark bg-transparent text-dark shadow-lg shadow-dark/40 text-sm"
+                className="px-4 py-2 rounded-md border border-dark bg-transparent text-dark shadow-lg shadow-dark/40 text-xs md:text-sm"
               >
                 See My Latest Tutorials
               </Link>

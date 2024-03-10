@@ -19,7 +19,7 @@ const WorkCard: React.FC<WorkCardProps> = ({
   const { onOpen } = ModalStore();
 
   return (
-    <div className="col-span-1 border border-primary/10 rounded-md shadow-lg shadow-dark/10  p-6 transition-all duration-300 ease-linear">
+    <div className="col-span-1 border border-primary/10 rounded-md shadow-lg shadow-dark/10 p-4 xl:p-6">
       <Image
         src={image ? image : "/About.png"}
         alt="Work Pic"
@@ -29,7 +29,7 @@ const WorkCard: React.FC<WorkCardProps> = ({
         loading="lazy"
       />
 
-      <h2 className="py-1 min-h-[85px] font-semibold text-base my-4 text-dark cursor-default line-clamp-3 first-letter:uppercase">
+      <h2 className="py-1 min-h-[85px] font-semibold text-sm xl:text-base my-4 text-dark cursor-default line-clamp-3 first-letter:uppercase">
         {title.trim()}
       </h2>
       <p className="hidden text-xs min-h-[35px] text-secondary cursor-default line-clamp-2">
@@ -40,13 +40,13 @@ const WorkCard: React.FC<WorkCardProps> = ({
         <Link
           href={`https://www.youtube.com/watch?v=${id}`}
           target="_blank"
-          className="relative border border-primary/10 bg-primary/70 text-white shadow-lg shadow-primary/40 px-4 py-2 rounded-md text-xs font-semibold"
+          className="relative border border-primary/10 bg-primary/70 text-white shadow-lg shadow-primary/40 px-3 xl:px-4 py-2 rounded-md text-xs font-semibold"
         >
-          <div className="w-fit absolute top-[0.25rem] left-[0.5rem]">
+          <div className="w-fit absolute top-[0.5rem] xl:top-[0.25rem] left-[0.5rem]">
             <PlayButton
               height={"1.25rem"}
               width={"1.25rem"}
-              className="w-6 h-6"
+              className="w-4 xl:w-6 h-4 xl:h-6"
             />
           </div>
           <span className="pl-4">Watch Now</span>

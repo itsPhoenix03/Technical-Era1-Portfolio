@@ -9,10 +9,10 @@ export default async function Work() {
   return (
     <>
       <ViewModal />
-      <main className="px-24 py-20">
+      <main className="px-4 md:px-24 py-10 md:py-20">
         <AnimateHeading
           heading="Dive into a World of Knowledge and Inspiration!"
-          className=""
+          className="!text-3xl md:!text-6xl lg:!text-8xl"
         />
 
         <WorkClient playlists={playlists} />

@@ -37,8 +37,8 @@ const WorkClient: React.FC<WorkClientProps> = ({ playlists }) => {
   if (videos && playlists)
     return (
       <>
-        <div className="mt-10 grid grid-cols-4 gap-4">
-          <div className="mt-4 mb-6 col-span-4 flex justify-start items-center gap-6">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="mt-4 mb-6 col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4 flex flex-wrap justify-start items-center gap-6">
             <span className="text-xs font-semibold text-primary/70">
               Category
             </span>

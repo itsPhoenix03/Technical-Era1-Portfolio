@@ -4,13 +4,13 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <main className="relative py-20 px-24">
+    <main className="relative py-10 md:py-20 px-2 md:px-24">
       <AnimateHeading
         heading="Empowering Innovation, Transforming Education"
-        className="py-2"
+        className="py-2 !text-4xl md:!text-8xl"
       />
 
-      <div className="mt-20">
+      <div className="mt-4 md:mt-20">
         <div className="absolute -right-[0%] bottom-[0%] -z-10">
           <Image
             src={"/About.png"}
@@ -22,8 +22,8 @@ export default function About() {
           />
         </div>
 
-        <div className="w-[70%] p-2">
-          <p className="text-dark font-normal text-md">
+        <div className="w-full xl:w-[70%] p-10 xl:p-6 bg-white/80 backdrop-blur-[2px] rounded-2xl overflow-hidden">
+          <p className="text-dark font-normal text-xs md:text-md text-center md:text-left">
             I&apos;m deeply passionate about&nbsp;
             <span className="text-primary font-medium">
               fostering innovation
@@ -33,8 +33,8 @@ export default function About() {
             &nbsp;experiences. With a diverse team of educators, engineers, and
             creative minds, I strive to empower individuals of all ages to
             explore their curiosity, expand their skills, and unleash their
-            creativity. My journey began with a vision to bridge the&nbsp;
-            <span className="text-primary font-medium">gap</span>
+            creativity. My journey began with a vision to&nbsp;
+            <span className="text-primary font-medium">bridge the gap</span>
             &nbsp;between&nbsp;
             <span className="text-primary font-medium">
               theoretical knowledge

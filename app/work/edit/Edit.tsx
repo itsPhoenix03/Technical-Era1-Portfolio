@@ -38,7 +38,7 @@ const Edit: React.FC<EditProps> = ({ playlists }) => {
     return (
       <>
         <div className="mt-10 grid grid-cols-4 gap-4">
-          <div className="mt-4 mb-6 col-span-4 flex justify-start items-center gap-6">
+          <div className="mt-4 mb-6 col-span-4 flex flex-wrap md:flex-nowrap justify-start items-center gap-6">
             <span className="text-xs font-semibold text-primary/70">
               Category
             </span>

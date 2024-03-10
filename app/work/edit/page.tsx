@@ -11,8 +11,11 @@ export default async function Work() {
     <>
       <Toaster />
       <ViewModal />
-      <main className="px-24 py-20">
-        <AnimateHeading heading="👋🏼 Hi Miraj, upload resource files here!" />
+      <main className="px-2 md:px-24 py-20">
+        <AnimateHeading
+          heading="👋🏼 Hi Miraj, upload resource files here!"
+          className="!text-4xl md:!text-8xl"
+        />
         <Edit playlists={playlists} />
       </main>
     </>

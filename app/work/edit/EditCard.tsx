@@ -2,7 +2,7 @@ import { handleImageUpload } from "@/app/hooks/firebaseFunctions";
 
 function EditCard({ title, id }: { title: string; id: string }) {
   return (
-    <div className="group col-span-4 flex justify-between items-center border border-dark/10 rounded-md shadow-2xl shadow-dark/10 hover:shadow-dark/70 hover:border-dark/20 px-4  py-2 transition-all duration-300 ease-linear">
+    <div className="group col-span-4 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 border border-dark/10 rounded-md shadow-2xl shadow-dark/10 hover:shadow-dark/70 hover:border-dark/20 px-4  py-2 transition-all duration-300 ease-linear">
       <h2 className="py-1 font-semibold text-sm text-dark/50 cursor-default first-letter:uppercase group-hover:text-dark/80">
         {title.trim()}
       </h2>
