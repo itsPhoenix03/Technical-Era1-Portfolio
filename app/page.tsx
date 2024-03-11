@@ -24,7 +24,7 @@ export default function Home() {
           <div className="w-full md:w-[75%] lg:w-[55%] p-2 flex flex-col justify-center items-start gap-6">
             <AnimateHeading
               heading="Unlocking Creativity: Your One-Stop Destination for Educational Projects and Innovative Solutions!"
-              className="text-2xl md:!text-4xl xl:!text-5xl md:text-right lg:text-left"
+              className="!text-2xl md:!text-4xl xl:!text-5xl md:text-right lg:text-left"
             />
 
             <p className="text-xs xl:text-sm font-medium text-dark">
