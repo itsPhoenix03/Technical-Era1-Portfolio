@@ -1,4 +1,4 @@
-import { handleImageUpload } from "@/app/hooks/firebaseFunctions";
+import { handleResourceUpload } from "@/app/hooks/firebaseFunctions";
 
 function EditCard({ title, id }: { title: string; id: string }) {
   return (
@@ -11,13 +11,13 @@ function EditCard({ title, id }: { title: string; id: string }) {
         <input
           type="file"
           name="image"
-          accept="image/*"
+          accept="*"
           id="image"
           // className="hidden"
           className="text-xs text-dark/50 file:border file:border-dark/20 file:bg-white file:text-dark file:px-4 file:py-2 file:rounded-md file:text-xs hover:file:text-primary/70 hover:file:border-primary/20 file:transition-[border,color] file:duration-300 file:ease-in-out file:cursor-pointer"
           onChange={(e) => {
             if (e.target.files) {
-              handleImageUpload(e.target.files[0], id);
+              handleResourceUpload(e.target.files[0], id);
             }
           }}
         />

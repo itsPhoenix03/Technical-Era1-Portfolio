@@ -40,22 +40,22 @@ const WorkCard: React.FC<WorkCardProps> = ({
         <Link
           href={`https://www.youtube.com/watch?v=${id}`}
           target="_blank"
-          className="relative border border-primary/10 bg-primary/70 text-white shadow-lg shadow-primary/40 px-3 xl:px-4 py-2 rounded-md text-xs font-semibold"
+          className="relative border border-primary/10 bg-primary/70 text-white shadow-lg shadow-primary/40 px-1 py-1 rounded-md text-xs font-semibold"
         >
-          <div className="w-fit absolute top-[0.5rem] xl:top-[0.25rem] left-[0.5rem]">
+          <div className="w-fit">
             <PlayButton
               height={"1.25rem"}
               width={"1.25rem"}
-              className="w-4 xl:w-6 h-4 xl:h-6"
+              className="w-6 h-6"
             />
           </div>
-          <span className="pl-4">Watch Now</span>
+          {/* <span className="pl-0 md:pl-4">Watch Now</span> */}
         </Link>
         <button
           onClick={() => onOpen(id)}
-          className="relative border border-primary/70 bg-white text-primary/70 shadow-lg shadow-primary/40 px-4 py-2 rounded-md text-xs font-semibold"
+          className="relative w-full md:w-full border border-primary/70 bg-white text-primary/70 shadow-lg shadow-primary/40 px-4 py-2 rounded-md text-xs font-semibold"
         >
-          Know More
+          Useful Resources
         </button>
       </div>
     </div>

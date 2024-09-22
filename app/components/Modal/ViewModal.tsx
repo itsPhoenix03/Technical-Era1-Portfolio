@@ -1,11 +1,11 @@
 "use client";
 import { ModalStore } from "@/app/hooks/useModal";
 import Modal from "./Modal";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getVideo } from "@/app/hooks/helper";
-import { Like, Views } from "../Icons";
-import { handleImagesFetch } from "@/app/hooks/firebaseFunctions";
+import { Download, Like, Views } from "../Icons";
+import { handleResourcesFetch } from "@/app/hooks/firebaseFunctions";
+import Link from "next/link";
 
 type InfoType = {
   title: string;
@@ -14,25 +14,31 @@ type InfoType = {
   likes: string;
 };
 
+type ItemDataType = {
+  name: string;
+  downloadLink: string;
+  metadata: any;
+};
+
 const ViewModal = () => {
   const { isOpen, onClose, id } = ModalStore();
   const [info, setInfo] = useState<InfoType | null>(null);
-  const [images, setImages] = useState([]);
+  const [resources, setResources] = useState<ItemDataType[]>([]);
 
   async function fetchVideoInfo(id: string) {
     const data = await getVideo(id);
-    const imagesData = await handleImagesFetch(id);
+    const resourcesData = await handleResourcesFetch(id);
 
     if (data) setInfo(data);
 
-    if (imagesData) {
-      const data = await Promise.allSettled(imagesData)
+    if (resourcesData) {
+      const data = await Promise.allSettled(resourcesData)
         //@ts-ignore
         .then((res) => res.map((res) => res.value))
         .catch((error) => console.log(error));
 
       //@ts-ignore
-      setImages(data);
+      setResources(data);
     }
   }
 
@@ -56,7 +62,7 @@ const ViewModal = () => {
           </div>
 
           <h6 className="text-md font-medium mb-2 relative before:absolute before:-bottom-0 before:left-0 before:w-[13%] before:h-[1px] before:bg-primary/40">
-            About this...
+            {info.title}
           </h6>
           <p className=" text-xs leading-4 first-letter:uppercase">
             {info.description
@@ -66,26 +72,35 @@ const ViewModal = () => {
         </div>
       )}
 
-      {images.length !== 0 && (
-        <div className="relative max-h-[350px]">
-          <h6 className="mb-5 text-md font-medium relative before:absolute before:-bottom-0 before:left-0 before:w-[28%] before:h-[1px] before:bg-primary/40">
-            Some helpful Resource Diagrams
-          </h6>
-          <div className="rounded-md flex justify-start items-center gap-2 overflow-x-scroll">
-            {images.map((image, index) => (
-              <Image
+      <div className="relative max-h-[350px]">
+        <h6 className="mb-5 text-md font-medium relative">
+          Resources for download
+        </h6>
+        {resources.length !== 0 ? (
+          <div className="rounded-md flex flex-col md:flex-row justify-start items-center gap-2 flex-wrap">
+            {resources.map((resource, index) => (
+              <Link
                 key={index}
-                src={image}
-                alt="some text"
-                height={100}
-                width={500}
-                className="w-fit max-h-[250px] rounded-md object-contain cursor-default"
-                priority
-              />
+                href={resource.downloadLink}
+                download={true}
+                className="w-full md:w-fit group"
+              >
+                <button className="w-full flex justify-center items-center gap-2 border bg-transparent border-dark/20 rounded-md px-5 py-2 text-xs text-dark font-semibold group-hover:bg-dark group-hover:text-white">
+                  <Download width={20} height={20} />
+                  {resource.metadata.displayFileName}
+                </button>
+              </Link>
             ))}
           </div>
-        </div>
-      )}
+        ) : (
+          <div className="">
+            <p className="text-sm text-center text-dark">
+              &quot;No resources available, you can still watch the video or
+              contact me to upload some resources for this video.&quot;
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 
@@ -94,7 +109,7 @@ const ViewModal = () => {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        title={info.title}
+        title={"Resources & Info"}
         body={body}
         actionLabel="Watch"
         secondaryActionLabel="Close"

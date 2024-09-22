@@ -13,7 +13,7 @@ export default async function Work() {
       <ViewModal />
       <main className="px-2 md:px-24 py-20">
         <AnimateHeading
-          heading="👋🏼 Hi Miraj, upload resource files here!"
+          heading="👋🏼 Hi Raj, upload resource files here!"
           className="!text-4xl md:!text-8xl"
         />
         <Edit playlists={playlists} />

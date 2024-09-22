@@ -1,4 +1,5 @@
 import {
+  getMetadata,
   getStorage,
   listAll,
   ref,
@@ -7,7 +8,13 @@ import {
 import app from "../firebase";
 import toast from "react-hot-toast";
 
-export async function handleImageUpload(file: File, id: string) {
+type ItemDataType = {
+  name: string;
+  downloadLink: string;
+  metadata: any;
+};
+
+export async function handleResourceUpload(file: File, id: string) {
   // ||||||||||||||||||||||||||||||||||||||||||||||||||
 
   try {
@@ -17,9 +24,16 @@ export async function handleImageUpload(file: File, id: string) {
       const storage = getStorage(app);
       const storageRef = ref(storage, `${id}/${fileName}`);
 
-      const uploadTask = uploadBytesResumable(storageRef, file);
+      const metaData = {
+        contentType: file.type,
+        customMetadata: {
+          displayFileName: file.name,
+        },
+      };
 
-      const toastId = toast.loading("Uploading Project Resource Image...");
+      const uploadTask = uploadBytesResumable(storageRef, file, metaData);
+
+      const toastId = toast.loading("Uploading Project Resource...");
 
       await uploadTask.on(
         "state_changed",
@@ -38,13 +52,13 @@ export async function handleImageUpload(file: File, id: string) {
         (error) => {
           // Handle unsuccessful uploads
           console.log(error.message);
-          toast.error("Oops! Project Resource Image Can't Be Uploaded", {
+          toast.error("Oops! Project Resource Can't Be Uploaded", {
             id: toastId,
           });
         },
         () => {
           // Handle successful uploads on complete
-          toast.success("Project Resource Image Uploaded", {
+          toast.success("Project Resource Uploaded", {
             id: toastId,
           });
         }
@@ -58,7 +72,7 @@ export async function handleImageUpload(file: File, id: string) {
   // ||||||||||||||||||||||||||||||||||||||||||||||||||
 }
 
-export async function handleImagesFetch(id: string) {
+export async function handleResourcesFetch(id: string) {
   try {
     const storage = getStorage();
 
@@ -68,32 +82,50 @@ export async function handleImagesFetch(id: string) {
 
     // Find all the prefixes and items.
     const data = await listAll(listRef)
-      .then((res) => {
-        return res.items.reduce((acc: string[], curr) => {
-          if (curr.fullPath)
-            acc.push(
-              `https://firebasestorage.googleapis.com/v0/b/technical-era1-dev.appspot.com/o/${curr.fullPath.replace(
+      .then(async (res) => {
+        const resources = res.items.map(async (item) => {
+          try {
+            const metadata = await getMetadata(item);
+
+            return {
+              name: item.name,
+              downloadLink: `https://firebasestorage.googleapis.com/v0/b/technical-era1-dev.appspot.com/o/${item.fullPath.replace(
                 "/",
                 "%2F"
-              )}`
-            );
-          return acc;
-        }, []);
+              )}`,
+              metadata: metadata.customMetadata,
+            };
+          } catch (error) {
+            console.error("Firebase fetch resource error:\n", error);
+
+            return {
+              name: item.name,
+              downloadLink: `https://firebasestorage.googleapis.com/v0/b/technical-era1-dev.appspot.com/o/${item.fullPath.replace(
+                "/",
+                "%2F"
+              )}`,
+              metadata: { displayFileName: item.name },
+            };
+          }
+        });
+
+        const resourcesArray = await Promise.all(resources);
+        return resourcesArray;
       })
       .then((res) => {
-        async function imageUrl(url: string) {
+        async function resourceUrl(url: string) {
           const response = await fetch(url);
           const data = await response.json();
           const downloadTokens = data.downloadTokens;
 
-          const imageUrl = `${url}?alt=media&token=${downloadTokens}`;
+          const resourceUrl = `${url}?alt=media&token=${downloadTokens}`;
 
-          return imageUrl;
+          return resourceUrl;
         }
 
-        return res.map(async (url) => {
-          const newImageUrl = await imageUrl(url);
-          return newImageUrl;
+        return res.map(async (data) => {
+          const newResourceUrl = await resourceUrl(data.downloadLink);
+          return { ...data, downloadLink: newResourceUrl };
         });
       })
       .catch((error) => {

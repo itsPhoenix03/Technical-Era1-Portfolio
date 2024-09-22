@@ -38,14 +38,18 @@ const WorkClient: React.FC<WorkClientProps> = ({ playlists }) => {
     return (
       <>
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          <div className="mt-4 mb-6 col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4 flex flex-wrap justify-start items-center gap-6">
-            <span className="text-xs font-semibold text-primary/70">
-              Category
-            </span>
+          <div className="mt-4 mb-6 col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4 flex flex-wrap justify-start items-center gap-2">
+            {/* <span className="text-xs font-semibold text-primary/70">
+              Filter By:
+            </span> */}
             {playlists.map((data: any) => (
               <button
                 key={data.id}
-                className="text-xs font-semibold text-dark/70 first-letter:uppercase"
+                className={`text-xs font-semibold first-letter:uppercase border rounded-md px-4 py-2 ${
+                  data.id === categoryId
+                    ? "text-primary border-primary"
+                    : "text-dark/70 border-dark/20"
+                }`}
                 onClick={() => setCategoryId(data.id)}
               >
                 {data.title}
